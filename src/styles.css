@@ -1,0 +1,53 @@
+/* Global Styles */
+
+* {
+  font-family: 'Roboto', Arial, sans-serif;
+  color: #616161;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background-color: black;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+router-outlet + *  {
+  padding: 0 16px;
+}
+
+/* Top Bar */
+
+app-top-bar {
+  width: 100%;
+  height: 85px;
+  background-color: #FFFFFF;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* app-top-bar h1 {
+  color: white;
+  margin: 0;
+} */
+
+/* Hyperlink */
+
+a {
+  cursor: pointer;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.8;
+}
