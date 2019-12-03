@@ -3,18 +3,38 @@
   <button class="dropbtn">Advanced Search</button>
 </div>
   <div class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
+   <ul><input type="checkbox" /> Fire </ul>
+   <ul><input type="checkbox" /> Water </ul>
+   <ul><input type="checkbox" /> Grass </ul>
+   <ul><input type="checkbox" /> Normal </ul>
+   <ul><input type="checkbox" /> Dark </ul>
+    <!-- <a href="#">Link 2</a>
+    <a href="#">Link 3</a> -->
   </div>
 </div>
 
 <h2>Pokemons</h2>
 
-<div class="list" *ngFor="let pokemon of pokemons">
+<!-- <div bp="grid 6 4@md 2@lg">
+    <a *ngFor="let p of pokemons | async" [routerLink]="['./', p.id]" class="card--media">
+      <i [class]="' sprite sprite-' + p.id"></i>
+      <div class="card--media__content">
+        {{p.name}}
+        <span bp="float-right">#{{p.id}}</span>
+      </div>
+    </a>
+  </div>
 
-  <h3>
-      {{ pokemons.name }}
-  </h3>
+  <router-outlet></router-outlet> -->
+
+<div bp="grid 6 4@md 2@lg" class="all">
+
+  <a class="list" *ngFor="let pokemon of pokemons" href="{{ pokemon.url }}" >
+    <i [class]="' sprite sprite-' + pokemon.name"></i>
+    <div class="list-content">
+      <span bp="float-right">{{ pokemon.name }}</span>
+      <!-- URL: <a href="{{ pokemon.url }}">URL</a> -->
+    </div>
+  </a>
 
 </div>

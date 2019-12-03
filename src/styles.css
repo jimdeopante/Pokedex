@@ -2,7 +2,7 @@
 
 * {
   font-family: 'Roboto', Arial, sans-serif;
-  color: #616161;
+  color: black;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -10,7 +10,8 @@
 
 body {
   margin: 0;
-  background-color: gray;
+  background-color: red;
+  font-size: 10px;
 }
 
 .container {

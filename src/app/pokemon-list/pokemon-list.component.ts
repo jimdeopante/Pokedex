@@ -16,8 +16,9 @@ pokemons;
   ngOnInit() {
     this.nameservice.getPokemon()
     .subscribe((data: Pokemons[]) => {
-      console.log('Data', data);
-      this.pokemons = data;
+      // console.log('Data', data);
+      this.pokemons = data.results;
+      // console.log(this.pokemons);
     });
   }
 

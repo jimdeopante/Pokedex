@@ -14,6 +14,7 @@ import { Observable } from 'rxjs';
 export class NameService {
 Pokemons = [];
 apiURL = 'https://pokeapi.co/api/v2/pokemon';
+jsonURL = 'https://jsonplaceholder.typicode.com/todos';
 
 constructor(private http: HttpClient) { }
 
