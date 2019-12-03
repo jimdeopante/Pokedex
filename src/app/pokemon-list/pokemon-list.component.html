@@ -34,19 +34,18 @@
     <img src="{{ imgsrc }}{{ '00'}}{{ pokemon.url.charAt(34) }}{{ pokemon.url.charAt(35).split('/', 1) }}{{ extsn }}">
   </i>
   <i> *ngIf="{{ pokemon.url.charAt(35).split('/', 1) }} === !null"
-      <img src="{{ imgsrc }}{{ '0'}}{{ pokemon.url.charAt(34) }}{{ pokemon.url.charAt(35).split('/', 1) }}{{ extsn }}">
+      <img src="{{ imgsrc }}{{ '0' }}{{ pokemon.url.charAt(34) }}{{ pokemon.url.charAt(35).split('/', 1) }}{{ extsn }}">
   </i>
   <i> *ngIf="{{ pokemon.url.charAt(36).split('/', 1) }} === !null"
-      <img src="{{ imgsrc }}{{ pokemon.url.charAt(34) }}{{ pokemon.url.charAt(35).split('/', 1) }}{{ extsn }}">
+      <img src="{{ imgsrc }}{{ pokemon.url.charAt(34) }}{{ pokemon.url.charAt(35).split('/', 1) }}{{ pokemon.url.charAt(36).split('/', 1) }}{{ extsn }}">
   </i>
     <div class="list-content">
-      <span bp="float-right">{{ pokemon.name }}</span>
-      <!-- URL: <a href="{{ pokemon.url }}">URL</a> -->
+      <span>{{ pokemon.name }}</span>
     </div>
   </a>
 
 </div>
 
-<div>
-  <a href="{{pokemon.next}}" >More Pokemons</a>
+<div class=next>
+  <button (click)="change(this.next)" >More Pokemons</button>
 </div>

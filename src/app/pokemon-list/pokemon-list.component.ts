@@ -17,9 +17,6 @@ i = 0;
 imgsrc = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/"
 extsn = ".png"
 
-//ctr = this.i++;
-
-
 
   constructor(private nameservice: NameService) { }
 
@@ -28,12 +25,14 @@ extsn = ".png"
     .subscribe((data: Pokemons[]) => {
       // console.log('Data', data);
       this.pokemons = data.results;
-      this.next = data.next.results;
+      this.next = data.next;
       console.log(this.next);
-      // (this.ctr);
     });
   }
-  
+
+  change(next:string) {
+    this.nameservice.getNext(next) }
+
   // nextBtn() {
   //   this.nameservice.getPokemon()
   //   .subscribe((data: Pokemons[]) => {

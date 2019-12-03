@@ -72,3 +72,11 @@
     display: flex;
     flex-direction: column;
   }
+
+  .next {
+    align-self: center;
+    height: 5vh;
+    width: 30vw;
+    text-align: center;
+    font-size: 5vh;
+  }
