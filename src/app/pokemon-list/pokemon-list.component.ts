@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NameService } from '../name.service';
 import { Pokemons } from '../pokemons';
 
+
 @Component({
   selector: 'app-pokemon-list',
   templateUrl: './pokemon-list.component.html',
@@ -13,8 +14,11 @@ pokemons;
   constructor(private nameservice: NameService) { }
 
   ngOnInit() {
-    this.pokemons = this.nameservice.getPokemon()
-    // .subscribe(data => this.Pokemons = data);
+    this.nameservice.getPokemon()
+    .subscribe((data: Pokemons[]) => {
+      console.log('Data', data);
+      this.pokemons = data;
+    });
   }
 
 }
