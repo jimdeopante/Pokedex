@@ -29,12 +29,24 @@
 
 <div bp="grid 6 4@md 2@lg" class="all">
 
-  <a class="list" *ngFor="let pokemon of pokemons" href="{{ pokemon.url }}" >
-    <i [class]="' sprite sprite-' + pokemon.name"></i>
+  <a class="list" *ngFor="let pokemon of pokemons" href="{{ pokemon.url }}">
+  <i> *ngIf="{{ pokemon.url.charAt(35).split('/', 1) }} === null"
+    <img src="{{ imgsrc }}{{ '00'}}{{ pokemon.url.charAt(34) }}{{ pokemon.url.charAt(35).split('/', 1) }}{{ extsn }}">
+  </i>
+  <i> *ngIf="{{ pokemon.url.charAt(35).split('/', 1) }} === !null"
+      <img src="{{ imgsrc }}{{ '0'}}{{ pokemon.url.charAt(34) }}{{ pokemon.url.charAt(35).split('/', 1) }}{{ extsn }}">
+  </i>
+  <i> *ngIf="{{ pokemon.url.charAt(36).split('/', 1) }} === !null"
+      <img src="{{ imgsrc }}{{ pokemon.url.charAt(34) }}{{ pokemon.url.charAt(35).split('/', 1) }}{{ extsn }}">
+  </i>
     <div class="list-content">
       <span bp="float-right">{{ pokemon.name }}</span>
       <!-- URL: <a href="{{ pokemon.url }}">URL</a> -->
     </div>
   </a>
 
+</div>
+
+<div>
+  <a href="{{pokemon.next}}" >More Pokemons</a>
 </div>
