@@ -15,37 +15,17 @@
 
 <h2>Pokemons</h2>
 
-<!-- <div bp="grid 6 4@md 2@lg">
-    <a *ngFor="let p of pokemons | async" [routerLink]="['./', p.id]" class="card--media">
-      <i [class]="' sprite sprite-' + p.id"></i>
-      <div class="card--media__content">
-        {{p.name}}
-        <span bp="float-right">#{{p.id}}</span>
-      </div>
-    </a>
-  </div>
+<div class="all">
 
-  <router-outlet></router-outlet> -->
-
-<div bp="grid 6 4@md 2@lg" class="all">
-
-  <a class="list" *ngFor="let pokemon of pokemons" href="{{ pokemon.url }}">
-  <i> *ngIf="{{ pokemon.url.charAt(35).split('/', 1) }} === null"
-    <img src="{{ imgsrc }}{{ '00'}}{{ pokemon.url.charAt(34) }}{{ pokemon.url.charAt(35).split('/', 1) }}{{ extsn }}">
-  </i>
-  <i> *ngIf="{{ pokemon.url.charAt(35).split('/', 1) }} === !null"
-      <img src="{{ imgsrc }}{{ '0' }}{{ pokemon.url.charAt(34) }}{{ pokemon.url.charAt(35).split('/', 1) }}{{ extsn }}">
-  </i>
-  <i> *ngIf="{{ pokemon.url.charAt(36).split('/', 1) }} === !null"
-      <img src="{{ imgsrc }}{{ pokemon.url.charAt(34) }}{{ pokemon.url.charAt(35).split('/', 1) }}{{ pokemon.url.charAt(36).split('/', 1) }}{{ extsn }}">
-  </i>
-    <div class="list-content">
-      <span>{{ pokemon.name }}</span>
-    </div>
-  </a>
+  <ul *ngFor="let pokemon of pokemons; let i=index;" >
+  <li class="list">
+    <img src="{{ imgsrc }}{{(pokenum+(i+1)).slice(-3)}}{{extsn}}">
+    <span>{{ pokemon.name }}</span>
+  </li>
+  </ul>
 
 </div>
 
 <div class=next>
-  <button (click)="change(this.next)" >More Pokemons</button>
+  <button (click)="change(next)" >More Pokemons</button>
 </div>

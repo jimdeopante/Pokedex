@@ -14,11 +14,16 @@ import { Observable } from 'rxjs';
 export class NameService {
 Pokemons = [];
 apiURL = 'https://pokeapi.co/api/v2/pokemon';
-jsonURL = 'https://jsonplaceholder.typicode.com/todos';
+
 
 constructor(private http: HttpClient) { }
 
 getPokemon(): Observable<Pokemons[]> {
    return this.http.get<Pokemons[]>(this.apiURL);
+}
+
+getNext(next: string) {
+  this.getPokemon();
+  this.apiURL = data.next;
 }
 }

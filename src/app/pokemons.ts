@@ -4,10 +4,12 @@ export interface Pokemons {
 
     url: string;
 
-    // id: string;
+    id: string;
 
-    // count: string;
+    count: string;
 
-    // next: string;
+    next: string;
 
 }
+
+

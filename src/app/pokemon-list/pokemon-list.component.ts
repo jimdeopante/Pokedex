@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NameService } from '../name.service';
 import { Pokemons } from '../pokemons';
+import { getDefaultService } from 'selenium-webdriver/chrome';
 
 
 @Component({
@@ -13,32 +14,29 @@ export class PokemonListComponent implements OnInit {
 pokemons;
 next;
 
-i = 0;
-imgsrc = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/"
-extsn = ".png"
+// i = 0;
+pokenum = '000';
+imgsrc = 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/';
+extsn = '.png';
 
 
   constructor(private nameservice: NameService) { }
 
   ngOnInit() {
+ this.getService();
+  }
+
+  change(next: string) {
+    this.nameservice.getNext(next);
+    this.getService();
+    }
+
+  getService() {
     this.nameservice.getPokemon()
     .subscribe((data: Pokemons[]) => {
-      // console.log('Data', data);
       this.pokemons = data.results;
-      this.next = data.next;
-      console.log(this.next);
     });
   }
 
-  change(next:string) {
-    this.nameservice.getNext(next) }
-
-  // nextBtn() {
-  //   this.nameservice.getPokemon()
-  //   .subscribe((data: Pokemons[]) => {
-  //     this.next = data.next;
-  //     console.log(this.next);
-  //   });
-  // }
 
 }
