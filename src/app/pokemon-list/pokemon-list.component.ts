@@ -14,12 +14,17 @@ export class PokemonListComponent implements OnInit {
 pokemons;
 next;
 prev;
+url;
+i = 1;
+
+
 
 // i = 0;
+
 pokenum = '000';
 imgsrc = 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/';
 extsn = '.png';
-
+source = `${this.imgsrc}${(this.pokenum + ( this.i++ )).slice(-3)}${this.extsn}`;
 
   constructor(private nameservice: NameService) { }
 
@@ -32,10 +37,14 @@ extsn = '.png';
     this.getService();
     }
 
-    changeprev(prev: string) {
+  changeprev(prev: string) {
       this.nameservice.getPrev(prev);
       this.getService();
       }
+
+  getID(id: string) {
+    this.id = results.url;
+  }
 
   getService() {
     this.nameservice.getPokemon()
@@ -45,6 +54,8 @@ extsn = '.png';
       this.prev = data.previous;
     });
   }
+
+
 
 
 }

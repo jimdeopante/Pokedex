@@ -1,23 +1,25 @@
 
-<h2>Pokemons</h2>
+<!-- <h2>Pokemons</h2> -->
 
-<div class="all">
+<div>
+  <button mat-raised-button (click)="changenext(next)" id=next>Next</button>
+  <button mat-raised-button (click)="changeprev(prev)" id=prev>Previous</button>
+</div>
 
-  <ul *ngFor="let pokemon of pokemons; let i=index;" >
+<mat-grid-list cols="5" rowHeight="300px">
+
+  <mat-grid-tile *ngFor="let pokemon of pokemons; let i=index;" >
   <mat-card class="card">
+    <!-- <img src="{{source}}"> -->
     <img src="{{ imgsrc }}{{(pokenum+(i+1)).slice(-3)}}{{extsn}}">
     <mat-card-title>{{ pokemon.name }}</mat-card-title>
-    <mat-card-content></mat-card-content>
+    <mat-card-content>
+        <!-- <br><span class=pokemonid>#{{ getId(pokemon.url) | number: '3.0-0' }} </span><br> -->
+    </mat-card-content>
   </mat-card>
-  </ul>
+  </mat-grid-tile>
 
-</div>
-
-<div class=next>
-  <button (click)="changenext(next)" >Next</button>
-</div>
+</mat-grid-list>
 
 
-<div class=prev>
-  <button (click)="changeprev(prev)" >Previous</button>
-</div>
+

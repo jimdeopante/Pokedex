@@ -1,5 +1,6 @@
 .button {
-  position: center;
+  position: flex;
+  left: 40vw;
 }
 /* Dropdown Button */
 .dropbtn {

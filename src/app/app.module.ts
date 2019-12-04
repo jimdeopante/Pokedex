@@ -9,6 +9,8 @@ import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material';
 import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
+import { MatGridListModule } from '@angular/material';
+import {MatButtonModule} from '@angular/material';
 
 @NgModule({
    declarations: [
@@ -22,7 +24,9 @@ import { AdvancedSearchComponent } from './advanced-search/advanced-search.compo
       AppRoutingModule,
       HttpClientModule,
       BrowserAnimationsModule,
-      MatCardModule
+      MatCardModule,
+      MatGridListModule,
+      MatButtonModule
    ],
    providers: [
       NameService

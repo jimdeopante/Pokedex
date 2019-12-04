@@ -1,4 +1,18 @@
+.card {
+  max-width: 250px;
+}
 
+#next {
+  position: relative;
+  left: 90vw;
+  top: 0vh;
+}
+
+#prev {
+  position: relative;
+  left: 5vw;
+  bottom: 0vh;
+}
 /* .list {
   display: flex;
   flex-direction: row;
@@ -34,6 +48,4 @@
     font-size: 5vh;
   } */
 
-  .card {
-    max-width: 250px;
-  }
+

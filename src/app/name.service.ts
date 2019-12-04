@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 export class NameService {
 Pokemons = [];
 apiURL = 'https://pokeapi.co/api/v2/pokemon';
-
+Id = '';
 
 constructor(private http: HttpClient) { }
 
@@ -28,6 +28,10 @@ getNext(next: string) {
 
 getPrev(prev: string) {
   this.apiURL = prev;
+}
+
+getId(id: string) {
+  this.Id = id;
 }
 
 }
