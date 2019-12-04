@@ -23,7 +23,11 @@ getPokemon(): Observable<Pokemons[]> {
 }
 
 getNext(next: string) {
-  this.getPokemon();
-  this.apiURL = data.next;
+  this.apiURL = next;
 }
+
+getPrev(prev: string) {
+  this.apiURL = prev;
+}
+
 }

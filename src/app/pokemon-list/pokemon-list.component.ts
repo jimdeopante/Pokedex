@@ -13,6 +13,7 @@ import { getDefaultService } from 'selenium-webdriver/chrome';
 export class PokemonListComponent implements OnInit {
 pokemons;
 next;
+prev;
 
 // i = 0;
 pokenum = '000';
@@ -26,15 +27,22 @@ extsn = '.png';
  this.getService();
   }
 
-  change(next: string) {
+  changenext(next: string) {
     this.nameservice.getNext(next);
     this.getService();
     }
+
+    changeprev(prev: string) {
+      this.nameservice.getPrev(prev);
+      this.getService();
+      }
 
   getService() {
     this.nameservice.getPokemon()
     .subscribe((data: Pokemons[]) => {
       this.pokemons = data.results;
+      this.next = data.next;
+      this.prev = data.previous;
     });
   }
 

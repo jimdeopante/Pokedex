@@ -1,31 +1,23 @@
-<div class="dropdown">
-  <div class="button">
-  <button class="dropbtn">Advanced Search</button>
-</div>
-  <div class="dropdown-content">
-   <ul><input type="checkbox" /> Fire </ul>
-   <ul><input type="checkbox" /> Water </ul>
-   <ul><input type="checkbox" /> Grass </ul>
-   <ul><input type="checkbox" /> Normal </ul>
-   <ul><input type="checkbox" /> Dark </ul>
-    <!-- <a href="#">Link 2</a>
-    <a href="#">Link 3</a> -->
-  </div>
-</div>
 
 <h2>Pokemons</h2>
 
 <div class="all">
 
   <ul *ngFor="let pokemon of pokemons; let i=index;" >
-  <li class="list">
+  <mat-card class="card">
     <img src="{{ imgsrc }}{{(pokenum+(i+1)).slice(-3)}}{{extsn}}">
-    <span>{{ pokemon.name }}</span>
-  </li>
+    <mat-card-title>{{ pokemon.name }}</mat-card-title>
+    <mat-card-content></mat-card-content>
+  </mat-card>
   </ul>
 
 </div>
 
 <div class=next>
-  <button (click)="change(next)" >More Pokemons</button>
+  <button (click)="changenext(next)" >Next</button>
+</div>
+
+
+<div class=prev>
+  <button (click)="changeprev(prev)" >Previous</button>
 </div>

@@ -10,6 +10,8 @@ export interface Pokemons {
 
     next: string;
 
+    previous: string;
+
 }
 
 

@@ -7,21 +7,26 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { MatCardModule } from '@angular/material';
+import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       TopBarComponent,
-      PokemonListComponent
+      PokemonListComponent,
+      AdvancedSearchComponent
    ],
    imports: [
       BrowserModule,
       AppRoutingModule,
       HttpClientModule,
-      BrowserAnimationsModule
+      BrowserAnimationsModule,
+      MatCardModule
    ],
-   providers: [NameService],
+   providers: [
+      NameService
+   ],
    bootstrap: [
       AppComponent
    ]
