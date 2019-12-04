@@ -11,6 +11,8 @@ import { MatCardModule } from '@angular/material';
 import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
 import { MatGridListModule } from '@angular/material';
 import {MatButtonModule} from '@angular/material';
+import {MatInputModule} from '@angular/material';
+
 
 @NgModule({
    declarations: [
@@ -26,7 +28,8 @@ import {MatButtonModule} from '@angular/material';
       BrowserAnimationsModule,
       MatCardModule,
       MatGridListModule,
-      MatButtonModule
+      MatButtonModule,
+      MatInputModule
    ],
    providers: [
       NameService

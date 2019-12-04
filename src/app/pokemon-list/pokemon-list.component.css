@@ -2,15 +2,19 @@
   max-width: 250px;
 }
 
+/* .prevnext {
+  bottom: 20vh;
+} */
+
 #next {
   position: relative;
-  left: 90vw;
+  left: 80vw;
   top: 0vh;
 }
 
 #prev {
   position: relative;
-  left: 5vw;
+  left: 8vw;
   bottom: 0vh;
 }
 /* .list {
