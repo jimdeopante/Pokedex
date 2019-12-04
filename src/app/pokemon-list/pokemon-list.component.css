@@ -1,5 +1,5 @@
 .card {
-  max-width: 250px;
+  max-width: 300px;
 }
 
 /* .prevnext {
@@ -8,14 +8,25 @@
 
 #next {
   position: relative;
-  left: 80vw;
+  left: 68vw;
   top: 0vh;
+  width: 10vw;
 }
 
 #prev {
   position: relative;
-  left: 8vw;
+  left: 11vw;
   bottom: 0vh;
+  width: 10vw;
+}
+
+#name::first-letter {
+ text-transform: uppercase;
+}
+
+#img {
+  min-width: 150px;
+  max-width: 175px;
 }
 /* .list {
   display: flex;

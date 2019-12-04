@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NameService } from '../name.service';
-import { Pokemons } from '../pokemons';
+import { PokemonAPI } from '../pokemons';
 import { getDefaultService } from 'selenium-webdriver/chrome';
 
 
@@ -15,14 +15,14 @@ pokemons;
 next;
 prev;
 url;
-i = 1;
-
-
-
-// i = 0;
+i;
+spritespic;
+details;
+modal;
 
 pokenum = '000';
 imgsrc = 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/';
+serebiisrc= 'https://www.serebii.net/pokemon/art/';
 extsn = '.png';
 source = `${this.imgsrc}${(this.pokenum + ( this.i++ )).slice(-3)}${this.extsn}`;
 
@@ -32,29 +32,35 @@ source = `${this.imgsrc}${(this.pokenum + ( this.i++ )).slice(-3)}${this.extsn}`
  this.getService();
   }
 
-  changenext(next: string) {
+  changeNext(next: string) {
     this.nameservice.getNext(next);
     this.getService();
     }
 
-  changeprev(prev: string) {
+  changePrev(prev: string) {
       this.nameservice.getPrev(prev);
       this.getService();
       }
 
-  getID(id: string) {
-    this.id = results.url;
+  getDescription(details: string) {
+    this.nameservice.getDetails(details);
+    this.getService();
   }
+  // getID(id: string) {
+  //   this.id = results.url;
+  // }
 
   getService() {
     this.nameservice.getPokemon()
-    .subscribe((data: Pokemons[]) => {
+    .subscribe((data: PokemonAPI[]) => {
       this.pokemons = data.results;
       this.next = data.next;
       this.prev = data.previous;
+      this.details = data.results.url.weight;
+      // this.spritespic = data.results.sprites.front_default;
+      // console.log(this.spritespic);
     });
   }
-
 
 
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
-import { Pokemons } from './pokemons';
+import { PokemonAPI } from './pokemons';
 import { Observable } from 'rxjs';
 
 
@@ -13,13 +13,13 @@ import { Observable } from 'rxjs';
 )
 export class NameService {
 Pokemons = [];
-apiURL = 'https://pokeapi.co/api/v2/pokemon';
-Id = '';
+apiURL = 'https://pokeapi.co/api/v2/pokemon?limit=964';
+// Id = '';
 
 constructor(private http: HttpClient) { }
 
-getPokemon(): Observable<Pokemons[]> {
-   return this.http.get<Pokemons[]>(this.apiURL);
+getPokemon(): Observable<PokemonAPI[]> {
+   return this.http.get<PokemonAPI[]>(this.apiURL);
 }
 
 getNext(next: string) {
@@ -30,8 +30,15 @@ getPrev(prev: string) {
   this.apiURL = prev;
 }
 
-getId(id: string) {
-  this.Id = id;
+getDetails(details: string) {
+  this.apiURL = details;
 }
+// getPic(pic: string) {
+//   this.apiURL = pic;
+// }
+
+// getId(id: string) {
+//   this.Id = id;
+// }
 
 }
