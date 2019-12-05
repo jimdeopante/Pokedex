@@ -12,11 +12,10 @@
   <mat-card class="card">
     <!-- <img src="{{source}}"> -->
     <img src="{{ serebiisrc }}{{(pokenum+(i+1)).slice(-3)}}{{extsn}}" id='img'>
-    <mat-card-title id=name>{{ pokemon.name }}
-        <a href="{{ pokemon.url }}" ></a>
+    <mat-card-title id=name>{{ pokemon.name }} 
     </mat-card-title>
     <mat-card-content>
-      
+      #{{(pokemon.url).substring(34, 37).split('/')}} {{pokemon.url}}
       <!-- <p>{{ details }}</p> -->
       <!-- <img src="{{ spritespic }}"> -->
         <!-- <br><span class=pokemonid>#{{ getId(pokemon.url) | number: '3.0-0' }} </span><br> -->

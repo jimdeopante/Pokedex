@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 )
 export class NameService {
 Pokemons = [];
-apiURL = 'https://pokeapi.co/api/v2/pokemon?limit=964';
+apiURL = 'https://pokeapi.co/api/v2/pokemon?limit=807';
 // Id = '';
 
 constructor(private http: HttpClient) { }

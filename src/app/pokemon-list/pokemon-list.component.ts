@@ -19,12 +19,14 @@ i;
 spritespic;
 details;
 modal;
-
+number;
 pokenum = '000';
 imgsrc = 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/';
 serebiisrc= 'https://www.serebii.net/pokemon/art/';
 extsn = '.png';
-source = `${this.imgsrc}${(this.pokenum + ( this.i++ )).slice(-3)}${this.extsn}`;
+
+// source = `${this.imgsrc}${(this.pokenum + ( this.i++ )).slice(-3)}${this.extsn}`;
+
 
   constructor(private nameservice: NameService) { }
 
@@ -41,11 +43,17 @@ source = `${this.imgsrc}${(this.pokenum + ( this.i++ )).slice(-3)}${this.extsn}`
       this.nameservice.getPrev(prev);
       this.getService();
       }
-
-  getDescription(details: string) {
-    this.nameservice.getDetails(details);
-    this.getService();
+  
+  getNumber(num: string) {
+    this.number = '#' + (num).slice(-2).split('/');
   }
+
+
+
+  // getDescription(details: string) {
+  //   this.nameservice.getDetails(details);
+  //   this.getService();
+  // }
   // getID(id: string) {
   //   this.id = results.url;
   // }
@@ -56,7 +64,7 @@ source = `${this.imgsrc}${(this.pokenum + ( this.i++ )).slice(-3)}${this.extsn}`
       this.pokemons = data.results;
       this.next = data.next;
       this.prev = data.previous;
-      this.details = data.results.url.weight;
+      // this.details = data.results.url.weight;
       // this.spritespic = data.results.sprites.front_default;
       // console.log(this.spritespic);
     });
