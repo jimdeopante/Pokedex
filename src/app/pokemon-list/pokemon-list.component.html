@@ -10,16 +10,17 @@
 
 <mat-grid-list cols="5" rowHeight="300px">
 
-  <mat-grid-tile *ngFor="let pokemon of pokemons; let i=index;" >
+  <mat-grid-tile *ngFor="let pokemon of pokemonListObj; let i=index;" >
   <mat-card class="card">
-    <!-- <img src="{{source}}"> -->
-    <img src="{{ serebiisrc }}{{(pokenum+(i+1)).slice(-3)}}{{extsn}}" id='img'>
-    <mat-card-title id=name>{{ pokemon.name }}
+    <img src="{{pokemon.image}}" id='img'>
+    <!-- <img src="{{ serebiisrc }}{{(pokenum+(i+1)).slice(-3)}}{{extsn}}" id='img'> -->
+    <mat-card-title id=name>{{ pokemon.name }} 
     </mat-card-title>
-    <mat-card-content>
-      #{{(pokemon.url).substring(34, 37).split('/')}}
-      <!-- <p>{{ details }}</p> -->
-      <!-- <img src="{{ spritespic }}"> -->
+    <mat-card-content id=num>
+      #{{pokemon.number}}
+      <!-- #{{(pokemon.url).substring(34, 37).split('/')}} -->
+      
+      
         <!-- <br><span class=pokemonid>#{{ getId(pokemon.url) | number: '3.0-0' }} </span><br> -->
     </mat-card-content>
   </mat-card>

@@ -13,7 +13,7 @@ import { MatGridListModule } from '@angular/material';
 import {MatButtonModule} from '@angular/material';
 import {MatInputModule} from '@angular/material';
 import {MatDialogModule} from '@angular/material/dialog';
-import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
+
 
 
 
@@ -22,8 +22,7 @@ import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.compo
       AppComponent,
       TopBarComponent,
       PokemonListComponent,
-      AdvancedSearchComponent,
-      PokemonDetailsComponent
+      AdvancedSearchComponent
    ],
    imports: [
       BrowserModule,

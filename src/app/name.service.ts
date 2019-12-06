@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
-import { PokemonAPI } from './models/pokemons';
+import { PokemonAPI } from './models/pokemonapi';
 import { PokemonDetails } from './models/pokemondetails';
 import { Observable } from 'rxjs';
 
@@ -20,6 +20,11 @@ apiURL = 'https://pokeapi.co/api/v2/pokemon?limit=807';
 pokemonURL ='https://pokeapi.co/api/v2/pokemon/';
 
 constructor(private http: HttpClient) { }
+
+setUrl(url: string) {
+  this.apiURL = url;
+}
+
 
 getPokemon(): Observable<PokemonAPI[]> {
    return this.http.get<PokemonAPI[]>(this.apiURL);
