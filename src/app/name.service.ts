@@ -25,8 +25,8 @@ getPokemon(): Observable<PokemonAPI[]> {
    return this.http.get<PokemonAPI[]>(this.apiURL);
 }
 
-getDetails(): Observable<PokemonDetails[]> {
-  return this.http.get<PokemonDetails[]>(this.pokemonURL);
+getDetails(url: string): Observable<PokemonDetails[]> {
+  return this.http.get<PokemonDetails[]>(url);
 }
 
 getNext(next: string) {

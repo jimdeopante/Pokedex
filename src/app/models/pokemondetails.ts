@@ -1,7 +1,7 @@
 export interface PokemonDetails {
     abilities: string;
 
-    weight: string;
+    weight: number[];
 
     height: string;
 }
