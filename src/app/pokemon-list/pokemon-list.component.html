@@ -10,8 +10,8 @@
 
 <mat-grid-list cols="5" rowHeight="300px">
 
-  <mat-grid-tile *ngFor="let pokemon of pokemonListObj; let i=index;" >
-  <mat-card class="card">
+  <mat-grid-tile *ngFor="let pokemon of pokemonListObj">
+  <mat-card (click)="openDialog(pokemon.url, pokemon.image)" class="card">
     <img src="{{pokemon.image}}" id='img'>
     <!-- <img src="{{ serebiisrc }}{{(pokenum+(i+1)).slice(-3)}}{{extsn}}" id='img'> -->
     <mat-card-title id=name>{{ pokemon.name }} 

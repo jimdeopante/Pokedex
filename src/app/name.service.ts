@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { Injectable} from '@angular/core';
+import { HttpClient} from '@angular/common/http';
 import { PokemonAPI } from './models/pokemonapi';
 import { PokemonDetails } from './models/pokemondetails';
 import { Observable } from 'rxjs';
@@ -13,6 +13,7 @@ import { Observable } from 'rxjs';
 // }
 )
 export class NameService {
+// @Input() pokemonnumber 
 Pokemons = [];
 results = [];
 apiURL = 'https://pokeapi.co/api/v2/pokemon?limit=807';
