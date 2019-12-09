@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { PokemonAPI } from './models/pokemonapi';
+import { PokemonAPI } from '../models/pokemonapi';
 @Pipe({
   name: 'filter'
 })
