@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NameService } from '../name.service';
 import { PokemonAPI } from '../models/pokemonapi';
-import { Pokemon } from '../models/pokemon';
+import { Pokemon } from '../classes/pokemon';
 import { getDefaultService } from 'selenium-webdriver/chrome';
 import {MatDialog, MatDialogConfig} from "@angular/material"
 import { PokemonDetailsComponent } from '../pokemon-details/pokemon-details.component';
-import { stringify } from 'querystring';
+import { NgModule } from '@angular/core';
 
 
 
@@ -18,6 +18,7 @@ import { stringify } from 'querystring';
 })
 
 export class PokemonListComponent implements OnInit {
+@Input() searchVal: string;
 
 pokemon: {}[] = [];
 pokemons;
@@ -30,14 +31,6 @@ url;
 next;
 prev;
 pokemonurl;
-spritespic;
-details;
-modal; 
-
-abilities:string[]=[];
-weight:number;
-height:number[]=[];
-type:string[]=[];
 size = 807;
 pokenum = '000';
 imgsrc = 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/';
@@ -70,23 +63,8 @@ pokemonListObj:Pokemon[]=[];
         
         this.pokemonListObj.push(new Pokemon (`${data.results[i].name}`, 
         data.results[i].url.substring(34, 37).split('/')[0], 
-        `${this.serebiisrc}${(i+1).toString().padStart(3, '0')}${this.extsn}`),);
-        // console.log(this.pokemonListObj[0].name)
-        // this.nameservice.setUrl(data.results[i].url){
-        //   console.log(data);
-        // }
+        `${this.serebiisrc}${(i+1).toString().padStart(3, '0')}${this.extsn}`),); 
       }
-     
-    //   for (let j = 0; j < this.size; j++) {
-    //     this.url = data.results[j].url;
-    //     // console.log(this.url)
-    //     // this.num.push((this.number.substring(34, 37).split('/'))[0]);
-    //     this.number = this.url.substring(34, 37).split('/')[0]
-    //     // console.log(this.number)
-    // }
-
-
-
     });
 
   }
@@ -103,7 +81,7 @@ pokemonListObj:Pokemon[]=[];
       pokemonimage: imagelink,
   };
 
-    this.dialog.open(PokemonDetailsComponent, dialogConfig);
+    this.dialog.open(PokemonDetailsComponent, dialogConfig); 
   }
 
  

@@ -3,6 +3,8 @@ import { NameService } from '../name.service';
 import { PokemonDetails } from '../models/pokemondetails';
 import {MatDialog, MatDialogConfig} from "@angular/material";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
+import { PokemonInfo } from '../classes/pokemoninfo';
+
 
 @Component({
   selector: 'app-pokemon-details',
@@ -12,15 +14,16 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 export class PokemonDetailsComponent implements OnInit {
 // @Input() Url: url;
 url: string;
-weight: number[];
-height: number[];
+name: string;
+weight: number;
+height: number;
 types: Object[];
 image: string;
-id: number[];
+id: number;
 serebiisrc= 'https://www.serebii.net/pokemon/art/';
 extsn = '.png';
 
-// pokemonDetailObj:PokemonDetail[]=[]; 
+// pokemonDetailObj:PokemonInfo[]=[]; 
 
   constructor(
     private nameservice: NameService,
@@ -35,11 +38,16 @@ this.image = data.imagelink;
     console.log(this.image);
     this.nameservice.getDetails(this.url)
     .subscribe((data: PokemonDetails[]) => {
-      // this.pokemonDetailsObj.push(new PokemonDetail (`${data.results[i].name}`,
+      this.name = data.name;
+      this.id = data.id;
+      // (weight: number, height: number, type: string, imagesrc: string)
+      // this.pokemonDetailObj.push(new PokemonInfo (data.weight, data.height, data.types, 
+      //   `${this.serebiisrc}${(this.id).toString().padStart(3, '0')}${this.extsn}` )); 
+      //   console.log(this.pokemonDetailObj)
       this.weight = data.weight;
       this.height = data.height;
       this.types = data.types;
-      this.id = data.id;
+     
       this.image = `${this.serebiisrc}${(this.id).toString().padStart(3, '0')}${this.extsn}`;
       console.log(this.id)
       console.log(this.weight);

@@ -7,14 +7,14 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule } from '@angular/material';
+import { MatCardModule, MatInputModule } from '@angular/material';
 import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
 import { MatGridListModule } from '@angular/material';
-import {MatButtonModule} from '@angular/material';
-import {MatInputModule} from '@angular/material';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatButtonModule} from '@angular/material';
+import { MatDialogModule} from '@angular/material/dialog';
 import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FilterPipe} from './filter.pipe';
 
 
 
@@ -24,7 +24,8 @@ import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.compo
       TopBarComponent,
       PokemonListComponent,
       AdvancedSearchComponent,
-      PokemonDetailsComponent
+      PokemonDetailsComponent,
+      FilterPipe
    ],
    imports: [
       BrowserModule,
@@ -35,7 +36,9 @@ import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.compo
       MatGridListModule,
       MatButtonModule,
       MatInputModule,
-      MatDialogModule
+      MatDialogModule,
+      FormsModule,
+      ReactiveFormsModule
    ],
    providers: [
       NameService

@@ -9,8 +9,7 @@
 
 
 <mat-grid-list cols="5" rowHeight="300px">
-
-  <mat-grid-tile *ngFor="let pokemon of pokemonListObj">
+  <mat-grid-tile *ngFor="let pokemon of pokemonListObj | filter : searchVal">
   <mat-card (click)="openDialog(pokemon.url, pokemon.image)" class="card">
     <img src="{{pokemon.image}}" id='img'>
     <!-- <img src="{{ serebiisrc }}{{(pokenum+(i+1)).slice(-3)}}{{extsn}}" id='img'> -->
@@ -18,10 +17,6 @@
     </mat-card-title>
     <mat-card-content id=num>
       #{{pokemon.number}}
-      <!-- #{{(pokemon.url).substring(34, 37).split('/')}} -->
-      
-      
-        <!-- <br><span class=pokemonid>#{{ getId(pokemon.url) | number: '3.0-0' }} </span><br> -->
     </mat-card-content>
   </mat-card>
   </mat-grid-tile>
