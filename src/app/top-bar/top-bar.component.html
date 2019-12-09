@@ -3,11 +3,24 @@
 </a>
 
 
+<!-- <div *ngIf="types">
+  <mat-toolbar>
+<mat-form-field>
+  <mat-label>Filter Pokemon by Type</mat-label>
+  <mat-select [(value)]="chosen" (selectionChange)="loadType()">
+    <mat-option value="">NONE</mat-option>
+    <mat-option *ngFor="let type of types.results" value="{{type.url}}">
+       {{ type.name | uppercase }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+</mat-toolbar>
+</div> -->
+
 <form class="search-form">
   <mat-form-field class="search-field">
-      <!-- <input [(ngModel)]="searchText" placeholder="search text goes here"> -->
-      <!-- <input matInput placeholder="Search Pokemon..." [searchVal]="searchTerm" (ngModelChange)=searchChanged()> -->
-    <input matInput placeholder="Search Pokemon" value="">
+      <input matInput placeholder="Search Pokemon..." [formControl]="searchTerm" (ngModelChange)=loadSearch()>
+    <!-- <input matInput placeholder="Search Pokemon" value=""> -->
   </mat-form-field>
 </form>
 

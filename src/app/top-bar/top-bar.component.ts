@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { NgModule } from '@angular/core';
-
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { NameService } from '../name.service';
 
 
 @Component({
@@ -9,13 +9,29 @@ import { NgModule } from '@angular/core';
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
-  // searchTerm: string = '';
+  
+@Output() selectedType = new EventEmitter();
+@Output() searchedTerm = new EventEmitter();
+chosen = '';
+searchTerm = new FormControl();
+typesUrl = 'https://pokeapi.co/api/v2/type/';
+types;
+  constructor(private typeservice: NameService) { }
 
-  constructor() { }
+  // ngOnInit() {
+  //   this.typeservice.setUrl(this.typesUrl);
+  //   this.typeservice.getTypeResults().subscribe(response => {
+  //     this.types = response;
+  //   });
+  // }
 
-  ngOnInit() {
+  loadType() {
+    this.selectedType.emit(this.chosen);
   }
 
-  
+  loadSearch(){
+    this.searchedTerm.emit(this.searchTerm.value);
+  }
+
 }
 

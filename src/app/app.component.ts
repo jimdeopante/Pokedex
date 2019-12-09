@@ -7,5 +7,14 @@ import { Component } from '@angular/core';
 
 })
 export class AppComponent {
-  title = 'Pokedex';
+  typeLink: string;
+  searchName: string;
+
+  selectedType(typeSelected: any) {
+    this.typeLink = typeSelected;
+  }
+
+  searchedName(searchValue: any) {
+    this.searchName = searchValue;
+  }
 }

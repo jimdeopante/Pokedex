@@ -18,7 +18,9 @@ import { NgModule } from '@angular/core';
 })
 
 export class PokemonListComponent implements OnInit {
-@Input() searchVal: string;
+// @Input() searchVal: string;
+@Input() typesLink: any;
+@Input() searchInput: any;
 
 pokemon: {}[] = [];
 pokemons;
@@ -33,6 +35,7 @@ prev;
 pokemonurl;
 size = 807;
 pokenum = '000';
+pokemonsURL = 'https://pokeapi.co/api/v2/pokemon?limit=807';
 imgsrc = 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/';
 serebiisrc= 'https://www.serebii.net/pokemon/art/';
 extsn = '.png';
@@ -41,7 +44,7 @@ pokemonListObj:Pokemon[]=[];
 // source = `${this.imgsrc}${(this.pokenum + ( this.i++ )).slice(-3)}${this.extsn}`;
 
 
-  constructor(private nameservice: NameService, private dialog: MatDialog) { }
+  constructor(private pokeservice: NameService, private dialog: MatDialog) { }
 
 
 
@@ -50,17 +53,10 @@ pokemonListObj:Pokemon[]=[];
   }
 
   getPokemons() {
-    this.nameservice.getPokemon()
-    .subscribe((data: PokemonAPI[]) => {
-      // this.pokemons = data.results;
-     
-      // this.next = data.next;
-      // this.prev = data.previous;
-      // this.details = data.results[1].name;
-
-      
-      for (let i = 0; i < this.size; i++) {
-        
+    this.pokeservice.setUrl(this.pokemonsURL);
+    this.pokeservice.getPokemon()
+    .subscribe((data: PokemonAPI[]) => {  
+      for (let i = 0; i < this.size; i++) {      
         this.pokemonListObj.push(new Pokemon (`${data.results[i].name}`, 
         data.results[i].url.substring(34, 37).split('/')[0], 
         `${this.serebiisrc}${(i+1).toString().padStart(3, '0')}${this.extsn}`),); 
@@ -77,26 +73,11 @@ pokemonListObj:Pokemon[]=[];
     dialogConfig.autoFocus = true;
 
     dialogConfig.data = {
-      pokemonurl: url,
-      pokemonimage: imagelink,
+      pokemonurl: url
   };
 
     this.dialog.open(PokemonDetailsComponent, dialogConfig); 
   }
-
- 
-
-
-  // changeNext(next: string) {
-  //   this.nameservice.getNext(next);
-  //   this.getPokemons();
-  //   }
-
-  // changePrev(prev: string) {
-  //     this.nameservice.getPrev(prev);
-  //     this.getPokemons();
-  //     }
-
 
 
 
