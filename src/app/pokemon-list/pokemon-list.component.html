@@ -15,7 +15,7 @@
 
 <div  *ngIf="pokemonFilteredObj && typesLink">
   <mat-grid-list cols="5" rowHeight="300px">
-    <mat-grid-tile *ngFor="let poke of pokemonFilteredObj">
+    <mat-grid-tile *ngFor="let poke of pokemonFilteredObj | filter : searchInput">
     <mat-card (click)="openDialog(poke.url)" class="card">
       <img src="{{poke.image}}" id='img'>
       <mat-card-title id=name>{{ poke.name }} 

@@ -45,7 +45,6 @@ pokemonFilteredObj:Pokemon[]=[];
   getPokemons() {
     this.pokeservice.getPokemon(this.pokemonsURL)
     .subscribe((data: PokemonAPI[]) => {  
-      this.size = data.results.length;
       for (let i = 0; i < this.size; i++) {      
         this.pokemonListObj.push(new Pokemon (`${data.results[i].name}`, 
         data.results[i].url.substring(34, 37).split('/')[0], 
@@ -76,7 +75,7 @@ pokemonFilteredObj:Pokemon[]=[];
           this.getPokemons();
         } else {
           this.pokeservice.getPokemonTypes(this.typesLink).subscribe((data: PokemonTypes[]) => {
-            this.size = data.pokemon.length;
+            // this.size = data.pokemon.length;
             for (let i = 0; i < this.size; i++) {
             this.pokemonFilteredObj.push(new Pokemon (`${data.pokemon[i].pokemon.name}`, 
             data.pokemon[i].pokemon.url.substring(34, 37).split('/')[0], 
