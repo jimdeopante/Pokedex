@@ -1,19 +1,21 @@
-<div id=dialogbox>
-<h2 mat-dialog-title id=name>{{name}}</h2>
-<div id=img>
-  <img src="{{image}}" >
-</div>
-<br>
+
 <mat-dialog-content class=content>
+  <div id=head>
+    <h2 mat-dialog-title id=name>{{name}}</h2>
+    <img src="{{image}}" id=img >
+  </div>
+  <div id=body>
   <h3>Details:</h3>
   <p>Weight: {{weight}} lbs</p>
   <p>Height: {{height}} dm</p>
+  <p>Id: #{{id}}</p>
   <h3>Type/s:</h3>
   <div *ngFor="let type of types"> 
     <span>{{ type.type.name | titlecase }}</span>
   </div>
-</mat-dialog-content>
 </div>
+</mat-dialog-content>
+
 
 
 
