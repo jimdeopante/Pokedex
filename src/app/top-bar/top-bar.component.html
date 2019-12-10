@@ -2,10 +2,6 @@
   <img src="/assets/img/pokedexlogo.jpg">
 </a>
 
-
-<!-- <div *ngIf="types">
-  <mat-toolbar> -->
-
 <div *ngIf="types" class="advsearch">
   <mat-form-field>
     <mat-label>Search Pokemon by Type</mat-label>
@@ -18,13 +14,9 @@
   </mat-form-field>
 </div>
 
-<!-- </mat-toolbar>
-</div> -->
-
 <form class="search-form">
   <mat-form-field class="search-field">
       <input matInput placeholder="Search Pokemon..." [formControl]="searchTerm" (ngModelChange)=loadSearch()>
-    <!-- <input matInput placeholder="Search Pokemon" value=""> -->
   </mat-form-field>
 </form>
 
