@@ -1,11 +1,7 @@
 #name::first-letter {
     text-transform: uppercase;
    }
-
-   #name {
-    font-size: 2vw;
-   }
-
+   
    #head {
     text-align: center;
     padding: 12px;
@@ -15,8 +11,6 @@
   #body {
     padding: 12px;
   }
-
-
 
 .content {
     font-size: 1.5vw;
