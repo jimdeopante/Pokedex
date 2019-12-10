@@ -6,7 +6,7 @@
 <!-- <div *ngIf="types">
   <mat-toolbar> -->
 
-<div *ngIf="types">
+<div *ngIf="types" class="advsearch">
   <mat-form-field>
     <mat-label>Search Pokemon by Type</mat-label>
     <mat-select [(value)]="chosen" (selectionChange)="loadType()">

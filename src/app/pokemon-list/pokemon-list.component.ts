@@ -77,10 +77,7 @@ pokemonFilteredObj:Pokemon[]=[];
             for (let i = 0; i < this.size; i++) {
             this.pokemonFilteredObj.push(new Pokemon (`${data.pokemon[i].pokemon.name}`, 
             data.pokemon[i].pokemon.url.substring(34, 37).split('/')[0], 
-            `${this.serebiisrc}${(i+1).toString().padStart(3, '0')}${this.extsn}`),); 
-
-            // this.pokemonType = data.pokemon[0].pokemon.name
-            
+            `${this.serebiisrc}${(i+1).toString().padStart(3, '0')}${this.extsn}`),);            
             console.log(this.pokemonFilteredObj[0])
             }
           });
