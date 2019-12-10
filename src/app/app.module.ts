@@ -16,7 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe} from './pipes/filter.pipe';
 import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { FilterWithTypePipe } from './pipes/filtertype'
+import { FilterWithTypePipe } from './pipes/filtertype';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
    declarations: [
@@ -40,7 +41,8 @@ import { FilterWithTypePipe } from './pipes/filtertype'
       FormsModule,
       ReactiveFormsModule,
       MatSelectModule,
-      MatToolbarModule
+      MatToolbarModule,
+      MatFormFieldModule
    ],
    providers: [
       APIService
