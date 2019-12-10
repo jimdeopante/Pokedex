@@ -2,8 +2,8 @@
   <img src="/assets/img/pokedexlogo.jpg">
 </a>
 
-<!-- <div *ngIf="types" class="advsearch">
-  <mat-form-field>
+<div *ngIf="types" class="advsearch">
+  <!-- <mat-form-field> -->
     <mat-label>Search Pokemon by Type</mat-label>
     <mat-select [(value)]="chosen" (selectionChange)="loadType()">
       <mat-option value="">NONE</mat-option>
@@ -11,12 +11,12 @@
          {{ type.name | uppercase }}
       </mat-option>
     </mat-select>
-  </mat-form-field>
-</div> -->
+  <!-- </mat-form-field> -->
+</div>
 
-<form class="search-form">
-  <mat-form-field class="search-field">
+<form class="search-form" class="search-field">
+  <!-- <mat-form-field> -->
       <input matInput placeholder="Search Pokemon..." [formControl]="searchTerm" (ngModelChange)=loadSearch()>
-  </mat-form-field>
+  <!-- </mat-form-field> -->
 </form>
 
