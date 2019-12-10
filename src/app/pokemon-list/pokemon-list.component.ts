@@ -73,6 +73,7 @@ pokemonFilteredObj:Pokemon[]=[];
       if (this.typesLink !== undefined) {
         if (this.typesLink === '') {
           this.getPokemons();
+          this.pokemonFilteredObj = [];
         } else {
           this.pokeservice.getPokemonTypes(this.typesLink).subscribe((data: PokemonTypes[]) => {
             // this.size = data.pokemon.length;
