@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { NameService } from './name.service';
+import { APIService } from './pokemonAPI.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
@@ -43,7 +43,7 @@ import { FilterWithTypePipe } from './pipes/filtertype'
       MatToolbarModule
    ],
    providers: [
-      NameService
+      APIService
    ],
    bootstrap: [
       AppComponent

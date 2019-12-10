@@ -1,14 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NameService } from '../name.service';
+import { APIService } from '../pokemonAPI.service';
 import { PokemonAPI } from '../models/pokemonapi';
 import { Pokemon } from '../classes/pokemon';
 import { getDefaultService } from 'selenium-webdriver/chrome';
 import {MatDialog, MatDialogConfig} from "@angular/material"
 import { PokemonDetailsComponent } from '../pokemon-details/pokemon-details.component';
-import { NgModule } from '@angular/core';
-
-
-
+import { PokemonTypes } from '../models/pokemontypes';
 
 
 @Component({
@@ -22,39 +19,31 @@ export class PokemonListComponent implements OnInit {
 @Input() typesLink: any;
 @Input() searchInput: any;
 
-pokemon: {}[] = [];
-pokemons;
+
 name: string[];
-num = [];
 number: number[];
-picturelink: string[];
-n: number;
 url;
-next;
-prev;
 pokemonurl;
+lastTypesLink;
+lastSearchInput;
+pokemonType;
 size = 807;
 pokenum = '000';
-pokemonsURL = 'https://pokeapi.co/api/v2/pokemon?limit=807';
+pokemonsURL = 'https://pokeapi.co/api/v2/pokemon?limit='+this.size;
 imgsrc = 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/';
 serebiisrc= 'https://www.serebii.net/pokemon/art/';
 extsn = '.png';
 pokemonListObj:Pokemon[]=[]; 
+pokemonFilteredObj:Pokemon[]=[];
 
-// source = `${this.imgsrc}${(this.pokenum + ( this.i++ )).slice(-3)}${this.extsn}`;
-
-
-  constructor(private pokeservice: NameService, private dialog: MatDialog) { }
-
-
+  constructor(private pokeservice: APIService, private dialog: MatDialog) { }
 
   ngOnInit() {
  this.getPokemons();
   }
 
   getPokemons() {
-    this.pokeservice.setUrl(this.pokemonsURL);
-    this.pokeservice.getPokemon()
+    this.pokeservice.getPokemon(this.pokemonsURL)
     .subscribe((data: PokemonAPI[]) => {  
       for (let i = 0; i < this.size; i++) {      
         this.pokemonListObj.push(new Pokemon (`${data.results[i].name}`, 
@@ -65,8 +54,7 @@ pokemonListObj:Pokemon[]=[];
 
   }
 
-  openDialog(url: string, imagelink: string) {
-    console.log(imagelink);
+  openDialog(url: string) {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = false;
@@ -79,9 +67,27 @@ pokemonListObj:Pokemon[]=[];
     this.dialog.open(PokemonDetailsComponent, dialogConfig); 
   }
 
+  ngOnChanges() {
+    if (this.lastTypesLink !== this.typesLink || this.lastSearchInput !== this.searchInput) {
+      if (this.typesLink !== undefined) {
+        if (this.typesLink === '') {
+          this.getPokemons();
+        } else {
+          this.pokeservice.getPokemonTypes(this.typesLink).subscribe((data: PokemonTypes[]) => {
+            for (let i = 0; i < this.size; i++) {
+            this.pokemonFilteredObj.push(new Pokemon (`${data.pokemon[i].pokemon.name}`, 
+            data.pokemon[i].pokemon.url.substring(34, 37).split('/')[0], 
+            `${this.serebiisrc}${(i+1).toString().padStart(3, '0')}${this.extsn}`),); 
 
-
-
+            // this.pokemonType = data.pokemon[0].pokemon.name
+            
+            console.log(this.pokemonFilteredObj[0])
+            }
+          });
+        }
+      }
+    }
+  }
 
 }
 

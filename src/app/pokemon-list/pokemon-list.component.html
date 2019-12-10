@@ -1,3 +1,5 @@
+<p style="color:black">{{typesLink}}</p>
+<div *ngIf="pokemonListObj">
 <mat-grid-list cols="5" rowHeight="300px">
   <mat-grid-tile *ngFor="let pokemon of pokemonListObj | filter : searchInput">
   <mat-card (click)="openDialog(pokemon.url)" class="card">
@@ -9,8 +11,22 @@
     </mat-card-content>
   </mat-card>
   </mat-grid-tile>
-
 </mat-grid-list>
+</div>
 
+<div *ngIf="pokemonType && typesLink">
+  <mat-grid-list cols="5" rowHeight="300px">
+    <mat-grid-tile *ngFor="let pokemon of pokemonFilteredObj | filter : searchInput">
+    <mat-card (click)="openDialog(pokemon.url)" class="card">
+      <img src="{{pokemon.image}}" id='img'>
+      <mat-card-title id=name>{{ pokemon.name }} 
+      </mat-card-title>
+      <mat-card-content id=num>
+        #{{pokemon.number}}
+      </mat-card-content>
+    </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
 
 

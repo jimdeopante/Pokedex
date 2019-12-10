@@ -1,16 +1,16 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { NameService } from './name.service';
+import { APIService } from './pokemonAPI.service';
 
 describe('Service: Name', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [NameService]
+      providers: [APIService]
     });
   });
 
-  it('should ...', inject([NameService], (service: NameService) => {
+  it('should ...', inject([APIService], (service: APIService) => {
     expect(service).toBeTruthy();
   }));
 });

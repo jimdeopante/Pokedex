@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { NameService } from '../name.service';
+import { APIService } from '../pokemonAPI.service';
 
 
 @Component({
@@ -16,14 +16,13 @@ chosen = '';
 searchTerm = new FormControl();
 typesUrl = 'https://pokeapi.co/api/v2/type/';
 types;
-  constructor(private typeservice: NameService) { }
+  constructor(private typeservice: APIService) { }
 
-  // ngOnInit() {
-  //   this.typeservice.setUrl(this.typesUrl);
-  //   this.typeservice.getTypeResults().subscribe(response => {
-  //     this.types = response;
-  //   });
-  // }
+  ngOnInit() {
+    this.typeservice.getPokemon(this.typesUrl).subscribe(response => {
+      this.types = response;
+    });
+  }
 
   loadType() {
     this.selectedType.emit(this.chosen);

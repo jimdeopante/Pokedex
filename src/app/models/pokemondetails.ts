@@ -8,6 +8,8 @@ export interface PokemonDetails {
 
     name: string;
 
+    id: number;
+
 }
 
 export interface Type {
