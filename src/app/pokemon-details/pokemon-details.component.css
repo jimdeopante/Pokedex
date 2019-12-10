@@ -1,19 +1,23 @@
 #name::first-letter {
     text-transform: uppercase;
    }
-   
+
    #head {
     text-align: center;
     padding: 12px;
     align-items: center;
   }
   
+  #name {
+      font-size: 1.9vw;
+  }
+
   #body {
     padding: 12px;
+    font-size: 1.5vw;
   }
 
 .content {
-    font-size: 1.5vw;
     display: flex;
     flex-direction: row;
     align-items: flex-start;

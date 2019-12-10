@@ -45,6 +45,7 @@ pokemonFilteredObj:Pokemon[]=[];
   getPokemons() {
     this.pokeservice.getPokemon(this.pokemonsURL)
     .subscribe((data: PokemonAPI[]) => {  
+      this.size = data.results.length;
       for (let i = 0; i < this.size; i++) {      
         this.pokemonListObj.push(new Pokemon (`${data.results[i].name}`, 
         data.results[i].url.substring(34, 37).split('/')[0], 
@@ -67,24 +68,25 @@ pokemonFilteredObj:Pokemon[]=[];
     this.dialog.open(PokemonDetailsComponent, dialogConfig); 
   }
 
-  // ngOnChanges() {
-  //   if (this.lastTypesLink !== this.typesLink || this.lastSearchInput !== this.searchInput) {
-  //     if (this.typesLink !== undefined) {
-  //       if (this.typesLink === '') {
-  //         this.getPokemons();
-  //       } else {
-  //         this.pokeservice.getPokemonTypes(this.typesLink).subscribe((data: PokemonTypes[]) => {
-  //           for (let i = 0; i < this.size; i++) {
-  //           this.pokemonFilteredObj.push(new Pokemon (`${data.pokemon[i].pokemon.name}`, 
-  //           data.pokemon[i].pokemon.url.substring(34, 37).split('/')[0], 
-  //           `${this.serebiisrc}${(i+1).toString().padStart(3, '0')}${this.extsn}`),);            
-  //           console.log(this.pokemonFilteredObj[0])
-  //           }
-  //         });
-  //       }
-  //     }
-  //   }
-  // }
+  ngOnChanges() {
+    if (this.lastTypesLink !== this.typesLink || this.lastSearchInput !== this.searchInput) {
+      this.pokemonFilteredObj = [];
+      if (this.typesLink !== undefined) {
+        if (this.typesLink === '') {
+          this.getPokemons();
+        } else {
+          this.pokeservice.getPokemonTypes(this.typesLink).subscribe((data: PokemonTypes[]) => {
+            this.size = data.pokemon.length;
+            for (let i = 0; i < this.size; i++) {
+            this.pokemonFilteredObj.push(new Pokemon (`${data.pokemon[i].pokemon.name}`, 
+            data.pokemon[i].pokemon.url.substring(34, 37).split('/')[0], 
+            `${this.serebiisrc}${(data.pokemon[i].pokemon.url.substring(34, 37).split('/')[0]).toString().padStart(3, '0')}${this.extsn}`),);            
+            }
+          });
+        }
+      }
+    }
+  }
 
 }
 
